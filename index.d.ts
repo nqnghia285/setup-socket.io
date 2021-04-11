@@ -2,7 +2,6 @@
 /// <reference types="socket.io" />
 /// <reference types="socket.io-cookies-parser" />
 
-import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
 
 /**
@@ -11,7 +10,7 @@ import socketio, { Namespace } from "socket.io";
  * @param origin
  * @returns Server
  */
-export function initIO(server: Server, origin: string): socketio.Server;
+export function initIO(server: any, origin: string): socketio.Server;
 
 /**
  * @method createNamespace
