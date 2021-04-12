@@ -1,6 +1,6 @@
 {
     "name": "setup-socket.io",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/nqnghia285/setup-socket.io.git",
@@ -24,9 +24,9 @@
     "files": [
         "dist"
     ],
-    "dependencies": {
+    "devDependencies": {
         "http": "^0.0.1-security",
         "socket.io": "^4.0.1",
-        "socket.io-cookies-parser": "^1.0.5"
+        "socket.io-cookies-parser": "^1.0.6"
     }
 }
