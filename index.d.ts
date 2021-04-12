@@ -1,5 +1,3 @@
-/// <reference path="./index.ts" />
-
 import socketio, { Namespace } from "socket.io";
 
 /**

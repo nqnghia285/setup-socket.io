@@ -1,3 +1,4 @@
+import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
 import { parser, cookieParser } from "socket.io-cookies-parser";
 
@@ -9,7 +10,7 @@ const io = new socketio.Server();
  * @param origin
  * @returns Server
  */
-export function initIO(server: any, origin: string): socketio.Server {
+export function initIO(server: Server, origin: string): socketio.Server {
     io.attach(server, {
         cors: {
             origin: [origin],
