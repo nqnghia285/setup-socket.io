@@ -1,6 +1,4 @@
 /// <reference path="./index.ts" />
-/// <reference types="socket.io" />
-/// <reference types="socket.io-cookies-parser" />
 
 import socketio, { Namespace } from "socket.io";
 
