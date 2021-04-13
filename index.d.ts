@@ -1,4 +1,7 @@
+import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
+
+declare const io: socketio.Server;
 
 /**
  * @method initIO
@@ -6,11 +9,13 @@ import socketio, { Namespace } from "socket.io";
  * @param origin
  * @returns Server
  */
-export function initIO(server: any, origin: string): socketio.Server;
+export declare function initIO(server: Server, origin: string): socketio.Server;
 
 /**
  * @method createNamespace
  * @param nsp
  * @returns Namespace
  */
-export function createNamespace(nsp: string): Namespace;
+export declare function createNamespace(nsp: string): Namespace;
+
+export default io;
