@@ -1,6 +1,6 @@
 {
     "name": "setup-socket.io",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/nqnghia285/setup-socket.io.git",
@@ -8,11 +8,11 @@
     "license": "MIT",
     "private": false,
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"Error: no test specified $npm_package_version\" && exit 1",
         "prepare": "tsc",
-        "version": "yarn format && git add -A src",
-        "postversion": "git push && git push --tags",
-        "git": "git add -A && git commit -m \"Setup Package\" && git push"
+        "git": "git add -A && git commit -m \"Update version: %npm_package_version%\" && git push",
+        "push": "yarn publish",
+        "v": "yarn version --patch"
     },
     "homepage": "https://github.com/nqnghia285/setup-socket.io.git#readme",
     "keywords": [
@@ -27,5 +27,8 @@
         "http": "^0.0.1-security",
         "socket.io": "^4.0.1",
         "socket.io-cookies-parser": "^1.0.7"
+    },
+    "devDependencies": {
+        "cross-conf-env": "^1.2.1"
     }
 }
