@@ -1,14 +1,14 @@
 import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
-import { parser, cookieParser } from "socket.io-cookies-parser";
+import { ioCookieParser, namespaceCookieParser } from "socket.io-cookies-parser";
 
 const io = new socketio.Server();
 
 /**
- * @method initIO
- * @param server
- * @param origin
- * @returns Server
+ * @method initIO Initiate io instance
+ * @param server Server
+ * @param origin string
+ * @returns socketio.Server
  */
 export function initIO(server: Server, origin: string): socketio.Server {
     io.attach(server, {
@@ -20,18 +20,18 @@ export function initIO(server: Server, origin: string): socketio.Server {
         },
     });
 
-    io.use(cookieParser);
+    io.use(ioCookieParser);
 
     return io;
 }
 
 /**
- * @method createNamespace
- * @param nsp
+ * @method createNamespace Create namespace of io
+ * @param nsp string
  * @returns Namespace
  */
 export function createNamespace(nsp: string): Namespace {
-    return io.of(nsp, parser);
+    return io.of(nsp, namespaceCookieParser);
 }
 
 export default io;
