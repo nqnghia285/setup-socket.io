@@ -1,8 +1,11 @@
 import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
 import { ioCookieParser, namespaceCookieParser } from "socket.io-cookies-parser";
+import { RequestType } from "socket.io-cookies-parser/dist/lib/interface";
 
 const io = new socketio.Server();
+
+export interface IRequest extends RequestType {}
 
 /**
  * @method initIO Initiate io instance
@@ -11,18 +14,18 @@ const io = new socketio.Server();
  * @returns socketio.Server
  */
 export function initIO(server: Server, origin: string): socketio.Server {
-    io.attach(server, {
-        cors: {
-            origin: [origin],
-            methods: ["GET", "POST"],
-            allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Origin", "Accept"],
-            credentials: true,
-        },
-    });
+	io.attach(server, {
+		cors: {
+			origin: [origin],
+			methods: ["GET", "POST"],
+			allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Origin", "Accept"],
+			credentials: true,
+		},
+	});
 
-    io.use(ioCookieParser);
+	io.use(ioCookieParser);
 
-    return io;
+	return io;
 }
 
 /**
@@ -31,7 +34,7 @@ export function initIO(server: Server, origin: string): socketio.Server {
  * @returns Namespace
  */
 export function createNamespace(nsp: string): Namespace {
-    return io.of(nsp, namespaceCookieParser);
+	return io.of(nsp, namespaceCookieParser);
 }
 
 export default io;

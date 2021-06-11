@@ -1,7 +1,10 @@
 import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
+import { RequestType } from "../socket.io-cookies-parser/lib/interface";
 
 declare const io: socketio.Server;
+
+export declare interface IRequest extends RequestType {}
 
 /**
  * @method initIO Initiate io instance
