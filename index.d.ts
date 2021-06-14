@@ -4,7 +4,7 @@ import { RequestType } from "../socket.io-cookies-parser/lib/interface";
 
 declare const io: socketio.Server;
 
-export declare interface IRequest extends RequestType {}
+export declare type IRequest = Request | RequestType;
 
 /**
  * @method initIO Initiate io instance

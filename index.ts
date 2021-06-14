@@ -1,11 +1,12 @@
 import { Server } from "http";
 import socketio, { Namespace } from "socket.io";
 import { ioCookieParser, namespaceCookieParser } from "socket.io-cookies-parser";
+import { Request } from "express";
 import { RequestType } from "socket.io-cookies-parser/dist/lib/interface";
 
 const io = new socketio.Server();
 
-export interface IRequest extends RequestType {}
+export type IRequest = Request | RequestType;
 
 /**
  * @method initIO Initiate io instance
